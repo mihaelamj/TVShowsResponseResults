@@ -7,7 +7,7 @@
 // MARK: - Item Result -
 
 public class Item<T>: Decodable where T: Decodable {
-  var item: T?
+  public var item: T?
   
   private enum CodingKeys: String, CodingKey {
     case show

@@ -7,19 +7,19 @@
 // MARK: - Collection Result -
 
 public class Pagination: Decodable {
-  var count: Int?
-  var page: Int?
-  var items: Int?
-  var pages: Int?
+  public var count: Int?
+  public var page: Int?
+  public var items: Int?
+  public var pages: Int?
 }
 
 public class Meta: Decodable {
-  var pagination: Pagination?
+  public var pagination: Pagination?
 }
 
 public class Collection<T>: Decodable where T: Decodable {
-  var meta: Meta?
-  var results: [T]?
+  public var meta: Meta?
+  public var results: [T]?
   
   private enum CodingKeys: String, CodingKey {
     case meta
