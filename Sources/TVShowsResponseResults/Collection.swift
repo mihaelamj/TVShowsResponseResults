@@ -30,7 +30,10 @@ public class Collection<T>: Decodable where T: Decodable {
   required public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     meta = try values.decodeIfPresent(Meta.self, forKey: .meta)
+    
     results = try values.decodeIfPresent([T].self, forKey: .shows)
+    if let res = results, !res.isEmpty { return }
+    
     results = try values.decodeIfPresent([T].self, forKey: .reviews)
   }
 }

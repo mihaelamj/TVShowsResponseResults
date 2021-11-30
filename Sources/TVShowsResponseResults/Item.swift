@@ -18,7 +18,11 @@ public class Item<T>: Decodable where T: Decodable {
   required public init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     item = try values.decodeIfPresent(T.self, forKey: .show)
+    
+    guard item == nil else { return }
     item = try values.decodeIfPresent(T.self, forKey: .review)
+    
+    guard item == nil else { return }
     item = try values.decodeIfPresent(T.self, forKey: .user)
   }
 }
